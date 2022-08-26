@@ -50,36 +50,36 @@ void Game::init() {
 
 }
 void Game::ProcessInput(GLfloat dt) {
-	if (Keys[GLFW_KEY_UP]) {
-		cam.Position.z -= 1;
-		cam.update_position();
-	}
 
-	if (Keys[GLFW_KEY_DOWN]) {
+	cam.update_position(); 
+	if (Keys[GLFW_KEY_S]) {
 		cam.Position.z += 1;
 		cam.update_position();
 	}
 
-	if (Keys[GLFW_KEY_A]) {
-		cam.Position.x += 1;
+	if (Keys[GLFW_KEY_W]) {
+		cam.Position.z -= 1;
 		cam.update_position();
 	}
-
-	if (Keys[GLFW_KEY_D]) {
+	if (Keys[GLFW_KEY_A]) {
 		cam.Position.x -= 1;
 		cam.update_position();
 	}
 
-	if (Keys[GLFW_KEY_S]) {
+	if (Keys[GLFW_KEY_D ]) {
+		cam.Position.x += 1;
+		cam.update_position();
+	}
+
+	if (Keys[GLFW_KEY_SPACE]) {
 		cam.Position.y += 1;
 		cam.update_position();
 	}
 
-	if (Keys[GLFW_KEY_W]) {
+	if (Keys[GLFW_KEY_LEFT_SHIFT]) {
 		cam.Position.y -= 1;
 		cam.update_position();
 	}
-	
 }
 
 void Game::Update(GLfloat dt) {

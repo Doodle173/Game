@@ -97,7 +97,9 @@ public:
     }
 
     void update_position() {
+        updateCameraVectors();
         ResourceManager::GetShader("line_shader").setMatrix4("view", GetViewMatrix(), true);
+
     }
 private:
     void updateCameraVectors() {

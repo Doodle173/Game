@@ -7,7 +7,7 @@
 
 //GLFW keyhandling declerations
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-
+void mouse_callback(GLFWwindow* window,  double xpos,  double ypos);
 //window width
 const GLuint SCREEN_WIDTH = 800;
 //window height
@@ -15,7 +15,8 @@ const GLuint SCREEN_HEIGHT = 600;
 
 Game game(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-
+float last_x = SCREEN_WIDTH / 2.0f;
+float last_y = SCREEN_HEIGHT / 2.0f;
 
 int main(void)
 {
@@ -56,7 +57,7 @@ int main(void)
     }
 
     glfwSetKeyCallback(window, key_callback);
-
+    glfwSetCursorPosCallback(window,  mouse_callback);
     //opengl config
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glEnable(GL_CULL_FACE);
@@ -134,4 +135,16 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
             glfwSetWindowShouldClose(window, GLFW_TRUE);
         }
     }
+}
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    float x_pos = static_cast<float>(xpos);
+    float y_pos = static_cast<float>(ypos);
+
+    float x_offset = x_pos - last_x;
+    float y_offset = last_y - y_pos;
+
+    last_x = xpos;
+    last_y = ypos;
+    game.cam.ProcessMouseMovement(x_offset, y_offset);
 }
