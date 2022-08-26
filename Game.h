@@ -14,6 +14,8 @@
 #include "ResourceManager.h"
 #include "Shader.h"
 
+#include "Chunk.h"
+
 //Game State Management
 enum GameState {
 	GAME_ACTIVE,
@@ -36,6 +38,8 @@ public:
 	LineRenderer *line_renderer;
 
 	unsigned int VBO, VAO;
+
+	Chunk *chunk;
 	//Game Constructor & Deconstructor
 	Game(GLuint width, GLuint height);
 	~Game();

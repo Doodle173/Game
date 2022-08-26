@@ -102,6 +102,8 @@ Texture ResourceManager::loadTextureFromFile(const GLchar* file, GLboolean alpha
 	//gen texture
 	texture.Generate(width, height, image);
 
+	//upload texture
+
 	//free image data
 	SOIL_free_image_data(image);
 	
