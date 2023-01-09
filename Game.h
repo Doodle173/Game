@@ -9,24 +9,22 @@
 
 #include "Camera.h"
 
-#include "LineRenderer.h"
-
 #include "ResourceManager.h"
 #include "Shader.h"
 
-#include "Chunk.h"
+#include "Triangle.h"
 
 class Game
 {
 public:
+	
+	Triangle triangle;
+
 	GLboolean Keys[1024];
 	GLuint Width, Height;
 
 	Camera cam;
 
-	LineRenderer *line_renderer;
-
-	Chunk *chunk;
 	//Game Constructor & Deconstructor
 	Game(GLuint width, GLuint height);
 	~Game();
