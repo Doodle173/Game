@@ -138,13 +138,4 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
-    float x_pos = static_cast<float>(xpos);
-    float y_pos = static_cast<float>(ypos);
-
-    float x_offset = x_pos - last_x;
-    float y_offset = last_y - y_pos;
-
-    last_x = xpos;
-    last_y = ypos;
-    game.cam.ProcessMouseMovement(x_offset, y_offset);
 }

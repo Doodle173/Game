@@ -16,28 +16,15 @@
 
 #include "Chunk.h"
 
-//Game State Management
-enum GameState {
-	GAME_ACTIVE,
-	GAME_MENU,
-	GAME_PAUSE,
-};
-
-
-
 class Game
 {
 public:
-
-	GameState State;
 	GLboolean Keys[1024];
 	GLuint Width, Height;
 
 	Camera cam;
 
 	LineRenderer *line_renderer;
-
-	unsigned int VBO, VAO;
 
 	Chunk *chunk;
 	//Game Constructor & Deconstructor
